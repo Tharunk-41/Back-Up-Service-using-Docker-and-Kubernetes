@@ -26,7 +26,7 @@ class MyDrive:
 
         logging.info(f"Checking if file '{filename}' exists in Google Drive folder...")
         response = self.service.files().list(
-                                        q=f"name='{filename}' and parents='{folder_id}'",
+                                        q=f"name='{filename}' and parents='{folder_id}' and trashed=false",
                                         spaces='drive',
                                         fields='nextPageToken, files(id, name)',
                                         pageToken=None).execute()
